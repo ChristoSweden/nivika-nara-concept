@@ -41,7 +41,7 @@
   app.innerHTML = `
     <div class="concept-bar"><span class="concept-dot"></span><strong>Konceptdemo</strong> — inte en officiell tjänst från ${b.name}</div>
     <header class="site-header">
-      <a class="brand-lockup" href="#top" aria-label="${b.service}, startsida"><span class="brand-symbol">${b.symbol}</span><span><span class="brand-name">${b.service}</span><span class="brand-sub">${b.name} · ${b.sub}</span></span></a>
+      <a class="brand-lockup" href="#top" aria-label="${b.service}, startsida"><span class="brand-wordmark">${b.name}<span class="brand-period" aria-hidden="true">.</span></span><span class="brand-divider" aria-hidden="true"></span><span class="brand-product"><span class="brand-name">${b.service}</span><span class="brand-sub">${b.sub}</span></span></a>
       <div class="header-actions"><button class="btn btn-secondary desktop-only" data-open="owner">För fastighetsägaren</button><button class="btn btn-primary" data-open="create">${icon('plus')} <span class="desktop-only">Lägg upp</span></button><button class="btn btn-secondary btn-icon" aria-label="Min profil">${icon('user')}</button></div>
     </header>
     <main id="top">
