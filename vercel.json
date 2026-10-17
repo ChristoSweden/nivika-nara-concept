@@ -1,5 +1,7 @@
 {
-  "git": { "deploymentEnabled": { "codex/analytics-disabled-20261017": false } },
+  "git": {
+    "deploymentEnabled": false
+  },
   "cleanUrls": true,
   "trailingSlash": false
 }
