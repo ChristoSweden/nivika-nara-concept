@@ -9,3 +9,7 @@ Before any separately authorized activation, integrate the real user privacy con
 No business funnel events are wired by this patch; no demo action is represented as signup, checkout or delivery.
 
 Local validation is recorded in the draft PR description. Full browser and production collection remain NOT_TESTED because activation is outside this change.
+
+## Verified local checks
+
+Six policy/bootstrap tests, app/bootstrap syntax checks and git diff checks passed. This static site has no build script.
