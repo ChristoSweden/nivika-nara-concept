@@ -13,3 +13,9 @@ Local validation is recorded in the draft PR description. Full browser and produ
 ## Verified local checks
 
 Six policy/bootstrap tests, app/bootstrap syntax checks and git diff checks passed. This static site has no build script.
+
+## Review clarification
+
+The deployment rule disables only this draft branch. Merging into the target branch can trigger that branch's normal build/deployment workflow; it is not disabled by this rule. Collection still remains off through the literal false gates. Review readiness here means safe to merge disabled preparation, not permission to merge, deploy or activate tracking.
+
+The disabled bootstrap now returns before reading browser state or constructing a policy, including unsupported or opaque origins. Regression tests trap access to location, navigator, storage, DOM and provider queues. No existing application or feedback workflow was changed.

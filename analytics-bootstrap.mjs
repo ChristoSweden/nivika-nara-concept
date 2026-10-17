@@ -3,6 +3,8 @@ import { createTrackingPolicy } from './tracking-policy.mjs';
 const TRACKING_ENABLED = false;
 const VERIFIED_SCRIPT_PATH = null;
 export function prepareTracking(browser = globalThis) {
+  // Disabled preparation must not inspect browser state or construct a policy.
+  if (!TRACKING_ENABLED) return null;
   if (!browser.location || !/^https?:$/.test(browser.location.protocol)) return null;
   const policy = createTrackingPolicy({
     ventureId: 'nivika-nara-concept', origin: browser.location.origin,

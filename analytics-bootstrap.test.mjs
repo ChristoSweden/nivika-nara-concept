@@ -1,12 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { prepareTracking } from './analytics-bootstrap.mjs';
-test('disabled app bootstrap never accesses provider queue or DOM', () => {
- const browser = { location: { protocol: 'https:', origin: 'https://example.test' }, navigator: {} };
- for (const key of ['document', 'va', 'vaq']) Object.defineProperty(browser, key, { get() { throw new Error('Unexpected side effect: '+key); }, set() { throw new Error('Unexpected mutation: '+key); } });
- const policy=prepareTracking(browser);
- assert.equal(policy.allowed(), false);
- assert.equal(policy.beforeSend({type:'pageview',url:'https://example.test/?email=private'}),null);
- assert.equal(policy.track(()=>{throw new Error('Unexpected event');},'core_feature_completed'),false);
+
+test('disabled bootstrap does not read browser state, queue, storage or DOM', () => {
+ const browser = {};
+ for (const key of ['location', 'navigator', 'localStorage', 'document', 'va', 'vaq', 'fetch']) Object.defineProperty(browser, key, { get() { throw new Error('Unexpected read: '+key); }, set() { throw new Error('Unexpected mutation: '+key); } });
+ assert.equal(prepareTracking(browser), null);
 });
-test('local file preview stays inert', () => assert.equal(prepareTracking({location:{protocol:'file:'}}),null));
+
+test('disabled bootstrap tolerates opaque, malformed, file and missing origins', () => {
+ for (const browser of [{}, {location:{protocol:'file:',origin:'null'}}, {location:{protocol:'https:',origin:'null'}}, {location:{protocol:'https:',origin:'not a URL'}}, {location:{protocol:'https:',origin:'https://example.test'}}]) assert.equal(prepareTracking(browser),null);
+});
