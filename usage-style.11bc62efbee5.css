@@ -1,0 +1,9 @@
+.portfolio-usage{box-sizing:border-box;position:relative;max-width:72rem;margin:2rem auto;padding:1.5rem 1rem;border-top:1px solid currentColor;font-family:inherit;color:inherit;background:transparent;text-align:start;font-size:1rem;line-height:1.6;z-index:1}
+.portfolio-usage h2{font-family:inherit;font-size:1rem;font-weight:600;margin:0 0 .5rem}
+.portfolio-usage p{max-width:70ch;margin:.6rem 0}
+.portfolio-usage summary{cursor:pointer;min-height:44px;display:list-item}
+.portfolio-usage a{text-decoration:underline;color:inherit}
+.portfolio-usage-buttons{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
+.portfolio-usage button{font:inherit;color:inherit;border:1px solid currentColor;background:transparent;padding:.65rem 1rem;min-height:44px;border-radius:.4rem;cursor:pointer}
+.portfolio-usage button:focus-visible,.portfolio-usage a:focus-visible,.portfolio-usage summary:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.portfolio-usage button:disabled{opacity:.55;cursor:not-allowed}
